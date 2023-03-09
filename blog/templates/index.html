@@ -11,26 +11,25 @@
         <h4 class="mb-5"><strong>Latest posts</strong></h4>
 
         <div class="row">
-          {% for blogitem in blogitems %}
+          {% for blog in blogs %}
           <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
+            <div class="card" inline>
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="{{blogitem.blog_image.url}}" class="img-fluid" />
+                <img src="{{blog.blog_image.url}}" class="img-fluid" width="50%" />
                 <a href="#!">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                 </a>
               </div>
               <div class="card-body">
-                <h5 class="card-title">{{blogitem.blog_tittle}}</h5>
+                <h5 class="card-title">{{ blog.blog_tittle }}</h5>
                 <p class="card-text">
-                  {{blogitem.blog_description}}
+                  {{ blog.blog_description }}
                 </p>
-                <a href="{'%readmore.html%'}" class="btn btn-primary">Read</a>
+                <a href="{% url 'readmore'%}" class="btn btn-primary">Read</a>
               </div>
             </div>
-            {% endfor %}
           </div>
-          
+          {% endfor %}
       </section>
       <!--Section: Content-->
 
