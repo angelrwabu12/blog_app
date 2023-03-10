@@ -13,3 +13,5 @@ def login(request):
     return render(request,'login.html')
 def readmore(request):
     return render(request,'readmore.html')
+def addblog(request):
+    return render(request,'addblog.html')
