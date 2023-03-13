@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import BlogItems
+from .forms import BlogForm
 
 def home(request):
     blogs =BlogItems.objects.all()
@@ -14,4 +15,12 @@ def login(request):
 def readmore(request):
     return render(request,'readmore.html')
 def addblog(request):
-    return render(request,'addblog.html')
+    if request.method =='POST':
+        form =BlogForm(request.POST, request.FILES)
+        print(form.is_valid())
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form=BlogForm()
+    return render(request, 'addblog.html', {'form':form})
