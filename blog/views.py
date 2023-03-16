@@ -20,8 +20,8 @@ def blog_list(request):
  
     if request.method =='POST':
         serializer=BlogSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
+        if serializer.is_valid():
+           serializer.save()
         return Response(serializer.data,status=status.HTTP_201_CREATED)
     
 @api_view(['GET','PUT','DELETE'])
@@ -42,7 +42,6 @@ def blog_detail(request,id):
     elif request.method =='DELETE':
          blog.delete()
          return Response(status=status.HTTP_204_NO_CONTENT)
-
 def registration(request):
     if request.method =="POST":
         form =NewUserFrom(request.POST)
