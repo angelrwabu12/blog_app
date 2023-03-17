@@ -1,1 +1,1 @@
-web: gunicorn cardealer.wsgi --log-file -
+web: gunicorn blog_project.wsgi --log-file -
