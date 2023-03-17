@@ -1,0 +1,1 @@
+web: gunicorn cardealer.wsgi --log-file -
